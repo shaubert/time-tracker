@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Time Tracker", "Time Tracker\Time Tracker.csproj", "{D5CCAE1C-D900-4456-BAE6-90B3BA73C1AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{28D431BB-6BAE-4FBA-8DD8-1B5153E4C53D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5CCAE1C-D900-4456-BAE6-90B3BA73C1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5CCAE1C-D900-4456-BAE6-90B3BA73C1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5CCAE1C-D900-4456-BAE6-90B3BA73C1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5CCAE1C-D900-4456-BAE6-90B3BA73C1AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28D431BB-6BAE-4FBA-8DD8-1B5153E4C53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D431BB-6BAE-4FBA-8DD8-1B5153E4C53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D431BB-6BAE-4FBA-8DD8-1B5153E4C53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D431BB-6BAE-4FBA-8DD8-1B5153E4C53D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
