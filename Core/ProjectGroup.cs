@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core
 {
+
     public class ProjectGroup
     {
         private ISet<Project> projects;
@@ -15,14 +16,11 @@ namespace Core
             projects = new HashSet<Project>();
         }
 
-        public List<Project> Projects
+        public List<Project> GetProjects()
         {
-            get
-            {
-                List<Project> result = new List<Project>(projects);
-                result.Sort((p1, p2) => p1.Name.CompareTo(p2.Name));
-                return result;
-            }
+            List<Project> result = new List<Project>(projects);
+            result.Sort((p1, p2) => p1.Name.CompareTo(p2.Name));
+            return result;            
         }
 
         public void Add(Project project)

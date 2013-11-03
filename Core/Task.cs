@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Core
 {
+    public delegate void TaskChanged(Task sender);
+
     public class Task : IComparable<Task>
     {
         private String name;
         private int durationInSeconds;
         private DateTime creationDate;
+
+        public event TaskChanged Changed;
 
         public Task()
         {
@@ -20,7 +24,11 @@ namespace Core
         public DateTime CreationDate
         {
             get { return creationDate; }
-            set { creationDate = value; }
+            set 
+            { 
+                creationDate = value;
+                NotifyChanged();
+            }
         }
 
         public DateTime EndDate 
@@ -31,15 +39,30 @@ namespace Core
         public int DurationInSeconds
         {
             get { return durationInSeconds; }
-            set { durationInSeconds = value; }
+            set 
+            { 
+                durationInSeconds = value;
+                NotifyChanged();
+            }
         }
 
         public String Name
         {
             get { return name; }
-            set { name = value; }
+            set 
+            { 
+                name = value;
+                NotifyChanged();
+            }
         }
 
+        private void NotifyChanged()
+        {
+            if (Changed != null)
+            {
+                Changed(this);
+            }
+        }
 
         public int CompareTo(Task other)
         {

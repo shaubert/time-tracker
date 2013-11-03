@@ -29,21 +29,24 @@
         private void InitializeComponent()
         {
             this.timerPanel = new System.Windows.Forms.Panel();
-            this.timerToggle = new System.Windows.Forms.Button();
+            this.delButton = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
+            this.timerToggle = new System.Windows.Forms.CheckBox();
+            this.taskNameTextBox = new System.Windows.Forms.TextBox();
             this.currentDateLabel = new System.Windows.Forms.Label();
             this.currentDatePanel = new System.Windows.Forms.Panel();
-            this.prevDateButton = new System.Windows.Forms.Button();
             this.nextDateButton = new System.Windows.Forms.Button();
+            this.prevDateButton = new System.Windows.Forms.Button();
             this.tasksListView = new System.Windows.Forms.ListView();
+            this.taskCreationTimeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.taskNameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.taskDurationColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.taskCreationTimeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.daySummaryToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.currentProjectPanel = new System.Windows.Forms.Panel();
-            this.currentProjectComboBox = new System.Windows.Forms.ComboBox();
             this.setupProjectsButton = new System.Windows.Forms.Button();
-            this.taskNameTextBox = new System.Windows.Forms.TextBox();
+            this.currentProjectComboBox = new System.Windows.Forms.ComboBox();
+            this.generateReportButton = new System.Windows.Forms.Button();
             this.timerPanel.SuspendLayout();
             this.currentDatePanel.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -52,33 +55,71 @@
             // 
             // timerPanel
             // 
-            this.timerPanel.Controls.Add(this.taskNameTextBox);
+            this.timerPanel.Controls.Add(this.delButton);
+            this.timerPanel.Controls.Add(this.newButton);
             this.timerPanel.Controls.Add(this.timerToggle);
+            this.timerPanel.Controls.Add(this.taskNameTextBox);
             this.timerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.timerPanel.Location = new System.Drawing.Point(0, 35);
+            this.timerPanel.Location = new System.Drawing.Point(0, 31);
             this.timerPanel.Name = "timerPanel";
-            this.timerPanel.Size = new System.Drawing.Size(324, 50);
+            this.timerPanel.Size = new System.Drawing.Size(616, 32);
             this.timerPanel.TabIndex = 0;
+            // 
+            // delButton
+            // 
+            this.delButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delButton.Location = new System.Drawing.Point(12, 2);
+            this.delButton.Name = "delButton";
+            this.delButton.Size = new System.Drawing.Size(41, 26);
+            this.delButton.TabIndex = 4;
+            this.delButton.Text = "Del";
+            this.delButton.UseVisualStyleBackColor = true;
+            // 
+            // newButton
+            // 
+            this.newButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.newButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newButton.Location = new System.Drawing.Point(472, 2);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(44, 26);
+            this.newButton.TabIndex = 4;
+            this.newButton.Text = "New";
+            this.newButton.UseVisualStyleBackColor = true;
             // 
             // timerToggle
             // 
             this.timerToggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.timerToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.timerToggle.Location = new System.Drawing.Point(221, 3);
+            this.timerToggle.Appearance = System.Windows.Forms.Appearance.Button;
+            this.timerToggle.AutoEllipsis = true;
+            this.timerToggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.timerToggle.Location = new System.Drawing.Point(522, 2);
             this.timerToggle.Name = "timerToggle";
-            this.timerToggle.Size = new System.Drawing.Size(91, 41);
-            this.timerToggle.TabIndex = 1;
-            this.timerToggle.Text = "14:30:25";
+            this.timerToggle.Size = new System.Drawing.Size(82, 26);
+            this.timerToggle.TabIndex = 3;
+            this.timerToggle.Text = "14:21:12";
+            this.timerToggle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.timerToggle.UseVisualStyleBackColor = true;
+            // 
+            // taskNameTextBox
+            // 
+            this.taskNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.taskNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.taskNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.taskNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.taskNameTextBox.Location = new System.Drawing.Point(59, 4);
+            this.taskNameTextBox.Name = "taskNameTextBox";
+            this.taskNameTextBox.Size = new System.Drawing.Size(407, 22);
+            this.taskNameTextBox.TabIndex = 2;
             // 
             // currentDateLabel
             // 
             this.currentDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.currentDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.currentDateLabel.Location = new System.Drawing.Point(58, 6);
+            this.currentDateLabel.Location = new System.Drawing.Point(100, 6);
             this.currentDateLabel.Name = "currentDateLabel";
-            this.currentDateLabel.Size = new System.Drawing.Size(208, 20);
+            this.currentDateLabel.Size = new System.Drawing.Size(416, 20);
             this.currentDateLabel.TabIndex = 2;
             this.currentDateLabel.Text = "26 December, 2013";
             this.currentDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,29 +130,29 @@
             this.currentDatePanel.Controls.Add(this.prevDateButton);
             this.currentDatePanel.Controls.Add(this.currentDateLabel);
             this.currentDatePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.currentDatePanel.Location = new System.Drawing.Point(0, 85);
+            this.currentDatePanel.Location = new System.Drawing.Point(0, 63);
             this.currentDatePanel.Name = "currentDatePanel";
-            this.currentDatePanel.Size = new System.Drawing.Size(324, 30);
+            this.currentDatePanel.Size = new System.Drawing.Size(616, 30);
             this.currentDatePanel.TabIndex = 3;
+            // 
+            // nextDateButton
+            // 
+            this.nextDateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nextDateButton.Location = new System.Drawing.Point(522, 4);
+            this.nextDateButton.Name = "nextDateButton";
+            this.nextDateButton.Size = new System.Drawing.Size(82, 23);
+            this.nextDateButton.TabIndex = 4;
+            this.nextDateButton.Text = ">";
+            this.nextDateButton.UseVisualStyleBackColor = true;
             // 
             // prevDateButton
             // 
             this.prevDateButton.Location = new System.Drawing.Point(12, 3);
             this.prevDateButton.Name = "prevDateButton";
-            this.prevDateButton.Size = new System.Drawing.Size(40, 23);
+            this.prevDateButton.Size = new System.Drawing.Size(82, 23);
             this.prevDateButton.TabIndex = 3;
             this.prevDateButton.Text = "<";
             this.prevDateButton.UseVisualStyleBackColor = true;
-            // 
-            // nextDateButton
-            // 
-            this.nextDateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.nextDateButton.Location = new System.Drawing.Point(272, 3);
-            this.nextDateButton.Name = "nextDateButton";
-            this.nextDateButton.Size = new System.Drawing.Size(40, 23);
-            this.nextDateButton.TabIndex = 4;
-            this.nextDateButton.Text = ">";
-            this.nextDateButton.UseVisualStyleBackColor = true;
             // 
             // tasksListView
             // 
@@ -125,35 +166,36 @@
             this.tasksListView.FullRowSelect = true;
             this.tasksListView.GridLines = true;
             this.tasksListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.tasksListView.Location = new System.Drawing.Point(0, 115);
+            this.tasksListView.Location = new System.Drawing.Point(0, 93);
             this.tasksListView.MultiSelect = false;
             this.tasksListView.Name = "tasksListView";
-            this.tasksListView.Size = new System.Drawing.Size(324, 201);
+            this.tasksListView.Size = new System.Drawing.Size(616, 291);
             this.tasksListView.TabIndex = 4;
             this.tasksListView.UseCompatibleStateImageBehavior = false;
             this.tasksListView.View = System.Windows.Forms.View.Details;
             // 
+            // taskCreationTimeColumn
+            // 
+            this.taskCreationTimeColumn.Text = "Created";
+            this.taskCreationTimeColumn.Width = 151;
+            // 
             // taskNameColumn
             // 
             this.taskNameColumn.Text = "Task";
-            this.taskNameColumn.Width = 197;
+            this.taskNameColumn.Width = 383;
             // 
             // taskDurationColumn
             // 
             this.taskDurationColumn.Text = "Duration";
-            this.taskDurationColumn.Width = 62;
-            // 
-            // taskCreationTimeColumn
-            // 
-            this.taskCreationTimeColumn.Text = "Started";
+            this.taskDurationColumn.Width = 75;
             // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.daySummaryToolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 294);
+            this.statusStrip.Location = new System.Drawing.Point(0, 362);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(324, 22);
+            this.statusStrip.Size = new System.Drawing.Size(616, 22);
             this.statusStrip.TabIndex = 5;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -165,13 +207,24 @@
             // 
             // currentProjectPanel
             // 
+            this.currentProjectPanel.Controls.Add(this.generateReportButton);
             this.currentProjectPanel.Controls.Add(this.setupProjectsButton);
             this.currentProjectPanel.Controls.Add(this.currentProjectComboBox);
             this.currentProjectPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.currentProjectPanel.Location = new System.Drawing.Point(0, 0);
             this.currentProjectPanel.Name = "currentProjectPanel";
-            this.currentProjectPanel.Size = new System.Drawing.Size(324, 35);
+            this.currentProjectPanel.Size = new System.Drawing.Size(616, 31);
             this.currentProjectPanel.TabIndex = 6;
+            // 
+            // setupProjectsButton
+            // 
+            this.setupProjectsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.setupProjectsButton.Location = new System.Drawing.Point(426, 2);
+            this.setupProjectsButton.Name = "setupProjectsButton";
+            this.setupProjectsButton.Size = new System.Drawing.Size(40, 24);
+            this.setupProjectsButton.TabIndex = 1;
+            this.setupProjectsButton.Text = "...";
+            this.setupProjectsButton.UseVisualStyleBackColor = true;
             // 
             // currentProjectComboBox
             // 
@@ -179,48 +232,35 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.currentProjectComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.currentProjectComboBox.FormattingEnabled = true;
-            this.currentProjectComboBox.Location = new System.Drawing.Point(12, 5);
+            this.currentProjectComboBox.Location = new System.Drawing.Point(12, 4);
             this.currentProjectComboBox.Name = "currentProjectComboBox";
-            this.currentProjectComboBox.Size = new System.Drawing.Size(254, 24);
+            this.currentProjectComboBox.Size = new System.Drawing.Size(408, 24);
             this.currentProjectComboBox.TabIndex = 0;
             // 
-            // setupProjectsButton
+            // generateReportButton
             // 
-            this.setupProjectsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.setupProjectsButton.Location = new System.Drawing.Point(272, 5);
-            this.setupProjectsButton.Name = "setupProjectsButton";
-            this.setupProjectsButton.Size = new System.Drawing.Size(40, 23);
-            this.setupProjectsButton.TabIndex = 1;
-            this.setupProjectsButton.Text = "...";
-            this.setupProjectsButton.UseVisualStyleBackColor = true;
-            // 
-            // taskNameTextBox
-            // 
-            this.taskNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.taskNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.taskNameTextBox.Location = new System.Drawing.Point(12, 3);
-            this.taskNameTextBox.Multiline = true;
-            this.taskNameTextBox.Name = "taskNameTextBox";
-            this.taskNameTextBox.Size = new System.Drawing.Size(203, 41);
-            this.taskNameTextBox.TabIndex = 2;
+            this.generateReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generateReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.generateReportButton.Location = new System.Drawing.Point(474, 2);
+            this.generateReportButton.Name = "generateReportButton";
+            this.generateReportButton.Size = new System.Drawing.Size(130, 24);
+            this.generateReportButton.TabIndex = 7;
+            this.generateReportButton.Text = "Generate Report";
+            this.generateReportButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 316);
+            this.ClientSize = new System.Drawing.Size(616, 384);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tasksListView);
             this.Controls.Add(this.currentDatePanel);
             this.Controls.Add(this.timerPanel);
             this.Controls.Add(this.currentProjectPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(340, 0);
+            this.MinimumSize = new System.Drawing.Size(340, 38);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tracker";
             this.timerPanel.ResumeLayout(false);
             this.timerPanel.PerformLayout();
@@ -236,7 +276,6 @@
         #endregion
 
         private System.Windows.Forms.Panel timerPanel;
-        private System.Windows.Forms.Button timerToggle;
         private System.Windows.Forms.Label currentDateLabel;
         private System.Windows.Forms.Panel currentDatePanel;
         private System.Windows.Forms.Button nextDateButton;
@@ -251,6 +290,10 @@
         private System.Windows.Forms.Button setupProjectsButton;
         private System.Windows.Forms.ComboBox currentProjectComboBox;
         private System.Windows.Forms.TextBox taskNameTextBox;
+        private System.Windows.Forms.CheckBox timerToggle;
+        private System.Windows.Forms.Button delButton;
+        private System.Windows.Forms.Button newButton;
+        private System.Windows.Forms.Button generateReportButton;
     }
 }
 

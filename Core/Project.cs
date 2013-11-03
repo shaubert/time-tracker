@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Core
 {
+    public delegate void ProjectChanged(Project sender);
+
     public class Project
     {
         private String name;
         private decimal rate;
         private ISet<Task> tasks;
+
+        public event ProjectChanged Changed;
 
         public Project()
         {
@@ -20,28 +24,44 @@ namespace Core
         public decimal Rate
         {
             get { return rate; }
-            set { rate = value; }
+            set 
+            { 
+                rate = value;
+                NotifyChanged();
+            }
         }
 
         public String Name
         {
             get { return name; }
-            set { name = value; }
+            set 
+            { 
+                name = value;
+                NotifyChanged();
+            }
         }
 
         public void AddTask(Task task)
         {
-            tasks.Add(task);
+            if (tasks.Add(task))
+            {
+                task.Changed += OnTaskChanged;
+                NotifyChanged();
+            }            
         }
 
         public void RemoveTask(Task task)
         {
-            tasks.Remove(task);
+            if (tasks.Remove(task))
+            {
+                task.Changed -= OnTaskChanged;
+                NotifyChanged();
+            }            
         }
 
-        public List<Task> Tasks
+        public List<Task> GetTasks()
         {
-            get { return GetTasks(null); }
+            return GetTasks(null);
         }
 
         public List<Task> GetTasks(Filter<Task> filter)
@@ -64,12 +84,35 @@ namespace Core
         public decimal GetCost()
         {
             return GetCost(null);
-        }
+        }        
 
         public decimal GetCost(Filter<Task> filter)
         {
             decimal costPerSecond = rate / 3600;
-            return GetTasks(filter).Sum(t => t.DurationInSeconds * costPerSecond);
+            return GetDuration(filter) * costPerSecond;
+        }
+
+        public long GetDuration()
+        {
+            return GetDuration(null);
+        }
+
+        public long GetDuration(Filter<Task> filter)
+        {
+            return GetTasks(filter).Sum(t => t.DurationInSeconds);
+        }
+
+        private void OnTaskChanged(Task task)
+        {
+            NotifyChanged();
+        }
+
+        private void NotifyChanged()
+        {
+            if (Changed != null)
+            {
+                Changed(this);
+            }
         }
     }
 }

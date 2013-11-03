@@ -11,11 +11,14 @@ namespace Core
         private DateTime from;
         private DateTime to;
 
-        public CreationDateFilter()
+        public CreationDateFilter() : this(DateTime.Now)
         {
-            DateTime now = DateTime.Now;
-            from = new DateTime(now.Year, now.Month, now.Day, 0, 0, 0);
-            to = new DateTime(now.Year, now.Month, now.Day, 23, 59, 59);
+        }
+
+        public CreationDateFilter(DateTime forDay)
+        {
+            from = new DateTime(forDay.Year, forDay.Month, forDay.Day, 0, 0, 0);
+            to = new DateTime(forDay.Year, forDay.Month, forDay.Day, 23, 59, 59);
         }
 
         public CreationDateFilter(DateTime from, DateTime to)

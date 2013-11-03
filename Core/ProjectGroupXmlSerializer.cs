@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,26 +17,27 @@ namespace Core
         private const String PROJECT_NODE = "project";
         private const String NAME_ATTR = "name";
         private const String RATE_ATTR = "rate";
-        private const String TASKS_NODE = "tasks";
 
         private const String TASK_NODE = "task";
         private const String CREATION_DATE_ATTR = "creationDate";
         private const String DURATION_ATTR = "durationInSec";
 
+        private IFormatProvider format = CultureInfo.CreateSpecificCulture("en-US");
+
         public void Serialize(ProjectGroup projectGroup, String fileName)
         {
             XDocument doc = new XDocument();
             XElement projectsNode = new XElement(PROJECTS_NODE);
-            foreach (Project project in projectGroup.Projects)
+            foreach (Project project in projectGroup.GetProjects())
             {
                 XElement projectNode = new XElement(PROJECT_NODE, 
                     new XAttribute(NAME_ATTR, project.Name),
-                    new XAttribute(RATE_ATTR, project.Rate));
-                foreach (Task task in project.Tasks)
+                    new XAttribute(RATE_ATTR, project.Rate.ToString(format)));
+                foreach (Task task in project.GetTasks())
                 {
                     XElement taskNode = new XElement(TASK_NODE,
                         new XAttribute(NAME_ATTR, task.Name),
-                        new XAttribute(CREATION_DATE_ATTR, task.CreationDate.ToLongDateString()),
+                        new XAttribute(CREATION_DATE_ATTR, task.CreationDate.ToString(format)),
                         new XAttribute(DURATION_ATTR, task.DurationInSeconds));
                     projectNode.Add(taskNode);
                 }
@@ -55,13 +57,13 @@ namespace Core
             {
                 Project project = new Project();
                 project.Name = projectNode.Attribute(NAME_ATTR).Value;
-                project.Rate = Decimal.Parse(projectNode.Attribute(RATE_ATTR).Value);
-                IEnumerable<XElement> taskNodes = projectNode.Elements(TASKS_NODE);
+                project.Rate = Decimal.Parse(projectNode.Attribute(RATE_ATTR).Value, format);
+                IEnumerable<XElement> taskNodes = projectNode.Elements(TASK_NODE);
                 foreach (XElement taskNode in taskNodes)
                 {
                     Task task = new Task();
                     task.Name = taskNode.Attribute(NAME_ATTR).Value;
-                    task.CreationDate = DateTime.Parse(taskNode.Attribute(CREATION_DATE_ATTR).Value);
+                    task.CreationDate = DateTime.Parse(taskNode.Attribute(CREATION_DATE_ATTR).Value, format);
                     task.DurationInSeconds = Int32.Parse(taskNode.Attribute(DURATION_ATTR).Value);
                     project.AddTask(task);
                 }
