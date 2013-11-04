@@ -30,11 +30,12 @@
         {
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectEditForm));
             this.projectsListView = new System.Windows.Forms.ListView();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.rateTextBox = new System.Windows.Forms.TextBox();
             this.projectNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.projectRateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.rateTextBox = new System.Windows.Forms.TextBox();
             this.newButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -43,6 +44,24 @@
             label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(10, 16);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(38, 13);
+            label1.TabIndex = 1;
+            label1.Text = "Name:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(15, 42);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(33, 13);
+            label2.TabIndex = 1;
+            label2.Text = "Rate:";
             // 
             // projectsListView
             // 
@@ -60,14 +79,14 @@
             this.projectsListView.UseCompatibleStateImageBehavior = false;
             this.projectsListView.View = System.Windows.Forms.View.Details;
             // 
-            // label1
+            // projectNameColumnHeader
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(10, 16);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(38, 13);
-            label1.TabIndex = 1;
-            label1.Text = "Name:";
+            this.projectNameColumnHeader.Text = "Name";
+            this.projectNameColumnHeader.Width = 266;
+            // 
+            // projectRateColumnHeader
+            // 
+            this.projectRateColumnHeader.Text = "Rate";
             // 
             // nameTextBox
             // 
@@ -78,30 +97,12 @@
             this.nameTextBox.Size = new System.Drawing.Size(268, 20);
             this.nameTextBox.TabIndex = 2;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(15, 42);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(33, 13);
-            label2.TabIndex = 1;
-            label2.Text = "Rate:";
-            // 
             // rateTextBox
             // 
             this.rateTextBox.Location = new System.Drawing.Point(54, 39);
             this.rateTextBox.Name = "rateTextBox";
             this.rateTextBox.Size = new System.Drawing.Size(78, 20);
             this.rateTextBox.TabIndex = 2;
-            // 
-            // projectNameColumnHeader
-            // 
-            this.projectNameColumnHeader.Text = "Name";
-            this.projectNameColumnHeader.Width = 266;
-            // 
-            // projectRateColumnHeader
-            // 
-            this.projectRateColumnHeader.Text = "Rate";
             // 
             // newButton
             // 
@@ -155,6 +156,7 @@
             this.ClientSize = new System.Drawing.Size(334, 316);
             this.Controls.Add(this.projectsListView);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(350, 350);
             this.Name = "ProjectEditForm";

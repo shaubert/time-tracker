@@ -31,6 +31,7 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskEditForm));
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.durationTextBox = new System.Windows.Forms.TextBox();
             this.creationDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -50,14 +51,6 @@
             label1.TabIndex = 0;
             label1.Text = "Name:";
             // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameTextBox.Location = new System.Drawing.Point(68, 12);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(390, 22);
-            this.nameTextBox.TabIndex = 1;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -67,14 +60,6 @@
             label2.TabIndex = 0;
             label2.Text = "Duration:";
             // 
-            // durationTextBox
-            // 
-            this.durationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.durationTextBox.Location = new System.Drawing.Point(68, 40);
-            this.durationTextBox.Name = "durationTextBox";
-            this.durationTextBox.Size = new System.Drawing.Size(79, 22);
-            this.durationTextBox.TabIndex = 1;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -83,6 +68,22 @@
             label3.Size = new System.Drawing.Size(75, 13);
             label3.TabIndex = 0;
             label3.Text = "Creation Date:";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameTextBox.Location = new System.Drawing.Point(68, 12);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(390, 22);
+            this.nameTextBox.TabIndex = 1;
+            // 
+            // durationTextBox
+            // 
+            this.durationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.durationTextBox.Location = new System.Drawing.Point(68, 40);
+            this.durationTextBox.Name = "durationTextBox";
+            this.durationTextBox.Size = new System.Drawing.Size(79, 22);
+            this.durationTextBox.TabIndex = 1;
             // 
             // creationDateTimePicker
             // 
@@ -126,6 +127,7 @@
             this.Controls.Add(label2);
             this.Controls.Add(label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TaskEditForm";
