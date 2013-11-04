@@ -44,9 +44,10 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.daySummaryToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.currentProjectPanel = new System.Windows.Forms.Panel();
+            this.generateReportButton = new System.Windows.Forms.Button();
             this.setupProjectsButton = new System.Windows.Forms.Button();
             this.currentProjectComboBox = new System.Windows.Forms.ComboBox();
-            this.generateReportButton = new System.Windows.Forms.Button();
+            this.saveReportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.timerPanel.SuspendLayout();
             this.currentDatePanel.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -216,10 +217,21 @@
             this.currentProjectPanel.Size = new System.Drawing.Size(616, 31);
             this.currentProjectPanel.TabIndex = 6;
             // 
+            // generateReportButton
+            // 
+            this.generateReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.generateReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.generateReportButton.Location = new System.Drawing.Point(472, 4);
+            this.generateReportButton.Name = "generateReportButton";
+            this.generateReportButton.Size = new System.Drawing.Size(130, 24);
+            this.generateReportButton.TabIndex = 7;
+            this.generateReportButton.Text = "Generate Report";
+            this.generateReportButton.UseVisualStyleBackColor = true;
+            // 
             // setupProjectsButton
             // 
             this.setupProjectsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.setupProjectsButton.Location = new System.Drawing.Point(426, 2);
+            this.setupProjectsButton.Location = new System.Drawing.Point(426, 4);
             this.setupProjectsButton.Name = "setupProjectsButton";
             this.setupProjectsButton.Size = new System.Drawing.Size(40, 24);
             this.setupProjectsButton.TabIndex = 1;
@@ -237,16 +249,12 @@
             this.currentProjectComboBox.Size = new System.Drawing.Size(408, 24);
             this.currentProjectComboBox.TabIndex = 0;
             // 
-            // generateReportButton
+            // saveReportFileDialog
             // 
-            this.generateReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.generateReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.generateReportButton.Location = new System.Drawing.Point(474, 2);
-            this.generateReportButton.Name = "generateReportButton";
-            this.generateReportButton.Size = new System.Drawing.Size(130, 24);
-            this.generateReportButton.TabIndex = 7;
-            this.generateReportButton.Text = "Generate Report";
-            this.generateReportButton.UseVisualStyleBackColor = true;
+            this.saveReportFileDialog.DefaultExt = "pdf";
+            this.saveReportFileDialog.Filter = "PDF Report File|*.pdf";
+            this.saveReportFileDialog.RestoreDirectory = true;
+            this.saveReportFileDialog.Title = "Choose output file";
             // 
             // MainForm
             // 
@@ -294,6 +302,7 @@
         private System.Windows.Forms.Button delButton;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.Button generateReportButton;
+        private System.Windows.Forms.SaveFileDialog saveReportFileDialog;
     }
 }
 

@@ -54,15 +54,26 @@ namespace Time_Tracker
             taskNameTextBox.KeyUp += taskNameTextBoxKeyUp;
             generateReportButton.Click += generateReportButtonClick;
 
+            FormClosed += MainFormFormClosed;
+
             LoadProjectGroup();
             RefreshProjects();
 
             SetCurrentDate(null);
         }
 
+        void MainFormFormClosed(object sender, FormClosedEventArgs e)
+        {
+            ProjectsPersistenceManager.GetInstance().Save(projectGroup);
+        }
+
         void generateReportButtonClick(object sender, EventArgs e)
         {
-            PdfReporter.GeneratePdfReport(AppDomain.CurrentDomain.BaseDirectory + "/report.pdf", currentProject, null);
+
+            if (saveReportFileDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+            {
+                PdfReporter.GeneratePdfReport(saveReportFileDialog.FileName, currentProject, null);
+            }            
         }
 
         void taskNameTextBoxKeyUp(object sender, KeyEventArgs e)
@@ -434,7 +445,7 @@ namespace Time_Tracker
             {
                 long[] components = TaskUtil.GetDurationComponents(currentTask.DurationInSeconds);
 
-                components[1] = components[0] * 8;
+                components[1] += components[0] * 8;
                 String duration = "";
                 if (components[1] > 0)
                     duration += components[1] + ":";
