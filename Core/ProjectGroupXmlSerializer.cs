@@ -22,7 +22,7 @@ namespace Core
         private const String CREATION_DATE_ATTR = "creationDate";
         private const String DURATION_ATTR = "durationInSec";
 
-        private IFormatProvider format = CultureInfo.CreateSpecificCulture("en-US");
+        private IFormatProvider format = CultureInfo.InvariantCulture;
 
         public void Serialize(ProjectGroup projectGroup, String fileName)
         {
@@ -37,7 +37,7 @@ namespace Core
                 {
                     XElement taskNode = new XElement(TASK_NODE,
                         new XAttribute(NAME_ATTR, task.Name),
-                        new XAttribute(CREATION_DATE_ATTR, task.CreationDate.ToString(format)),
+                        new XAttribute(CREATION_DATE_ATTR, task.CreationDate.ToUniversalTime().ToString("r", format)),
                         new XAttribute(DURATION_ATTR, task.DurationInSeconds));
                     projectNode.Add(taskNode);
                 }
@@ -63,7 +63,7 @@ namespace Core
                 {
                     Task task = new Task();
                     task.Name = taskNode.Attribute(NAME_ATTR).Value;
-                    task.CreationDate = DateTime.Parse(taskNode.Attribute(CREATION_DATE_ATTR).Value, format);
+                    task.CreationDate = DateTime.ParseExact(taskNode.Attribute(CREATION_DATE_ATTR).Value, "r", format).ToLocalTime();
                     task.DurationInSeconds = Int32.Parse(taskNode.Attribute(DURATION_ATTR).Value);
                     project.AddTask(task);
                 }

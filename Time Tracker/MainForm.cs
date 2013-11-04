@@ -119,9 +119,13 @@ namespace Time_Tracker
                 TaskEditForm form = new TaskEditForm(oldTask);
                 form.ShowDialog(this);
                 if (form.Result != null)
-                {
+                {                    
                     currentProject.RemoveTask(oldTask);
                     currentProject.AddTask(form.Result);
+                    if (activeTask == oldTask)
+                    {
+                        SetActiveTask(form.Result);
+                    }
                     RefreshTasks();
                     RefreshDaySummary();
 
@@ -137,6 +141,11 @@ namespace Time_Tracker
 
         void taskNameTextBoxTextChanged(object sender, EventArgs e)
         {
+            FindActiveTaskByName();           
+        }
+
+        private void FindActiveTaskByName()
+        {
             String taskName = taskNameTextBox.Text;
             Core.Task foundTask = currentProject.GetTasks().FirstOrDefault(
                 t => t.Name.Equals(taskName, StringComparison.CurrentCultureIgnoreCase));
@@ -147,7 +156,7 @@ namespace Time_Tracker
             else
             {
                 SetActiveTask(null);
-            }            
+            } 
         }
 
         void tasksListViewSelectedIndexChanged(object sender, EventArgs e)

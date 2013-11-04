@@ -87,7 +87,7 @@
             // 
             // creationDateTimePicker
             // 
-            this.creationDateTimePicker.CustomFormat = "dd MMMM yyyy    hh:mm:ss tt";
+            this.creationDateTimePicker.CustomFormat = "dd MMMM yyyy    HH:mm:ss";
             this.creationDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.creationDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.creationDateTimePicker.Location = new System.Drawing.Point(234, 40);
