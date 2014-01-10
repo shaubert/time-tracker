@@ -63,13 +63,32 @@ namespace Core
                 {
                     Task task = new Task();
                     task.Name = taskNode.Attribute(NAME_ATTR).Value;
-                    task.CreationDate = DateTime.ParseExact(taskNode.Attribute(CREATION_DATE_ATTR).Value, "r", format).ToLocalTime();
+                    task.CreationDate = parseDate(taskNode.Attribute(CREATION_DATE_ATTR).Value);
                     task.DurationInSeconds = Int32.Parse(taskNode.Attribute(DURATION_ATTR).Value);
                     project.AddTask(task);
                 }
                 result.Add(project);
             }
             return result;
+        }
+
+        private DateTime parseDate(string dateStr)
+        {
+            try
+            {
+                return DateTime.ParseExact(dateStr, "r", format).ToLocalTime();
+            }
+            catch
+            {
+                try
+                {
+                    return DateTime.Parse(dateStr, format);
+                }
+                catch
+                {
+                    return DateTime.Parse(dateStr);
+                }
+            }
         }
     }
 }

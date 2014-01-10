@@ -117,9 +117,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportIntervalSelectionForm.af-ZA.resx">
-      <DependentUpon>ReportIntervalSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReportIntervalSelectionForm.resx">
       <DependentUpon>ReportIntervalSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
