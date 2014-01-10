@@ -11,7 +11,7 @@ namespace Core
     public class Task : IComparable<Task>
     {
         private String name;
-        private int durationInSeconds;
+        private long durationInMillis;
         private DateTime creationDate;
 
         public event TaskChanged Changed;
@@ -33,15 +33,25 @@ namespace Core
 
         public DateTime EndDate 
         {
-            get { return creationDate.AddSeconds(durationInSeconds); }
+            get { return creationDate.AddMilliseconds(durationInMillis); }
         }
 
         public int DurationInSeconds
         {
-            get { return durationInSeconds; }
+            get { return (int) durationInMillis / 1000; }
             set 
             { 
-                durationInSeconds = value;
+                durationInMillis += value * 1000;
+                NotifyChanged();
+            }
+        }
+
+        public long DurationInMillis
+        {
+            get { return durationInMillis; }
+            set
+            {
+                durationInMillis = value;
                 NotifyChanged();
             }
         }

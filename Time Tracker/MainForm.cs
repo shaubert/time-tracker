@@ -69,11 +69,8 @@ namespace Time_Tracker
 
         void generateReportButtonClick(object sender, EventArgs e)
         {
-
-            if (saveReportFileDialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-            {
-                PdfReporter.GeneratePdfReport(saveReportFileDialog.FileName, currentProject, null);
-            }            
+            ReportIntervalSelectionForm reportForm = new ReportIntervalSelectionForm(currentProject);
+            reportForm.ShowDialog(this);
         }
 
         void taskNameTextBoxKeyUp(object sender, KeyEventArgs e)
@@ -446,10 +443,6 @@ namespace Time_Tracker
         private void RefreshTimerToggleText()
         {
             Core.Task currentTask = activeTask;
-            if (currentTask == null && tasksListView.SelectedItems.Count > 0)
-            {
-                currentTask = (Core.Task) tasksListView.SelectedItems[0].Tag;
-            }
             if (currentTask != null)
             {
                 long[] components = TaskUtil.GetDurationComponents(currentTask.DurationInSeconds);
@@ -471,7 +464,7 @@ namespace Time_Tracker
         {
             if (activeTask != null)
             {
-                activeTask.DurationInSeconds += (int)increaseDurationInterval.ElapsedMilliseconds / 1000;
+                activeTask.DurationInMillis += increaseDurationInterval.ElapsedMilliseconds;
                 RefreshTimerToggleText();
                 RefreshTasks();
                 RefreshDaySummary();

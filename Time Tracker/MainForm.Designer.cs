@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.timerPanel = new System.Windows.Forms.Panel();
+            this.delButton = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
             this.timerToggle = new System.Windows.Forms.CheckBox();
             this.taskNameTextBox = new System.Windows.Forms.TextBox();
             this.currentDateLabel = new System.Windows.Forms.Label();
@@ -43,12 +45,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.daySummaryToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.currentProjectPanel = new System.Windows.Forms.Panel();
-            this.currentProjectComboBox = new System.Windows.Forms.ComboBox();
-            this.saveReportFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.delButton = new System.Windows.Forms.Button();
-            this.newButton = new System.Windows.Forms.Button();
             this.generateReportButton = new System.Windows.Forms.Button();
             this.setupProjectsButton = new System.Windows.Forms.Button();
+            this.currentProjectComboBox = new System.Windows.Forms.ComboBox();
             this.timerPanel.SuspendLayout();
             this.currentDatePanel.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -66,6 +65,29 @@
             this.timerPanel.Name = "timerPanel";
             this.timerPanel.Size = new System.Drawing.Size(616, 37);
             this.timerPanel.TabIndex = 0;
+            // 
+            // delButton
+            // 
+            this.delButton.BackgroundImage = global::Time_Tracker.Properties.Resources._1383592859_trash;
+            this.delButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.delButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delButton.Location = new System.Drawing.Point(12, 0);
+            this.delButton.Name = "delButton";
+            this.delButton.Size = new System.Drawing.Size(32, 32);
+            this.delButton.TabIndex = 4;
+            this.delButton.UseVisualStyleBackColor = true;
+            // 
+            // newButton
+            // 
+            this.newButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.newButton.BackgroundImage = global::Time_Tracker.Properties.Resources._1383593858_plus_32;
+            this.newButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.newButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newButton.Location = new System.Drawing.Point(496, 2);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(32, 32);
+            this.newButton.TabIndex = 4;
+            this.newButton.UseVisualStyleBackColor = true;
             // 
             // timerToggle
             // 
@@ -197,47 +219,6 @@
             this.currentProjectPanel.Size = new System.Drawing.Size(616, 40);
             this.currentProjectPanel.TabIndex = 6;
             // 
-            // currentProjectComboBox
-            // 
-            this.currentProjectComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.currentProjectComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.currentProjectComboBox.FormattingEnabled = true;
-            this.currentProjectComboBox.Location = new System.Drawing.Point(12, 10);
-            this.currentProjectComboBox.Name = "currentProjectComboBox";
-            this.currentProjectComboBox.Size = new System.Drawing.Size(516, 24);
-            this.currentProjectComboBox.TabIndex = 0;
-            // 
-            // saveReportFileDialog
-            // 
-            this.saveReportFileDialog.DefaultExt = "pdf";
-            this.saveReportFileDialog.Filter = "PDF Report File|*.pdf";
-            this.saveReportFileDialog.RestoreDirectory = true;
-            this.saveReportFileDialog.Title = "Choose output file";
-            // 
-            // delButton
-            // 
-            this.delButton.BackgroundImage = global::Time_Tracker.Properties.Resources._1383592859_trash;
-            this.delButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.delButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.delButton.Location = new System.Drawing.Point(12, 0);
-            this.delButton.Name = "delButton";
-            this.delButton.Size = new System.Drawing.Size(32, 32);
-            this.delButton.TabIndex = 4;
-            this.delButton.UseVisualStyleBackColor = true;
-            // 
-            // newButton
-            // 
-            this.newButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.newButton.BackgroundImage = global::Time_Tracker.Properties.Resources._1383593858_plus_32;
-            this.newButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.newButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.newButton.Location = new System.Drawing.Point(496, 2);
-            this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(32, 32);
-            this.newButton.TabIndex = 4;
-            this.newButton.UseVisualStyleBackColor = true;
-            // 
             // generateReportButton
             // 
             this.generateReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -262,6 +243,17 @@
             this.setupProjectsButton.Size = new System.Drawing.Size(32, 32);
             this.setupProjectsButton.TabIndex = 1;
             this.setupProjectsButton.UseVisualStyleBackColor = true;
+            // 
+            // currentProjectComboBox
+            // 
+            this.currentProjectComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentProjectComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.currentProjectComboBox.FormattingEnabled = true;
+            this.currentProjectComboBox.Location = new System.Drawing.Point(12, 10);
+            this.currentProjectComboBox.Name = "currentProjectComboBox";
+            this.currentProjectComboBox.Size = new System.Drawing.Size(516, 24);
+            this.currentProjectComboBox.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -310,7 +302,6 @@
         private System.Windows.Forms.Button delButton;
         private System.Windows.Forms.Button newButton;
         private System.Windows.Forms.Button generateReportButton;
-        private System.Windows.Forms.SaveFileDialog saveReportFileDialog;
     }
 }
 
